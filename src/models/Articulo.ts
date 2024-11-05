@@ -1,12 +1,19 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/dbConfig";
+import {
+  IAtributos,
+  IAtributosCreacionArticulo,
+} from "../interfaces/articuloModel.interface";
 
-class Articulo extends Model {
+class Articulo
+  extends Model<IAtributos, IAtributosCreacionArticulo>
+  implements IAtributos
+{
   id!: string;
-  nombre!: string;
-  fechaModificación!: Date;
-  marca!: string;
   estadoActivacion!: boolean;
+  fechaModificacion!: Date;
+  nombre!: string;
+  marca!: string;
 }
 
 Articulo.init(
@@ -20,7 +27,7 @@ Articulo.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    fechaModificación: {
+    fechaModificacion: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -34,5 +41,15 @@ Articulo.init(
       defaultValue: true,
     },
   },
-  { sequelize, modelName: "articulo" }
+  {
+    sequelize,
+    modelName: "articulo",
+    timestamps: true,
+    // Para que updatedAt de sequelize tome el campo fechaModificacion del modelo.
+    // Por lo que al actualizar, este campo se va a modificar automaticamente.
+    updatedAt: "fechaModificacion",
+    createdAt: "fechaCreacion",
+  }
 );
+
+export default Articulo;

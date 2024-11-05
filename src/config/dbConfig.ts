@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 import { Sequelize } from "sequelize";
-import { EnvConfig } from "../interfaces/envConfig.interface";
+import { IEnvConfig } from "../interfaces/envConfig.interface";
 
 dotenv.config({ path: ".env" });
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME }: EnvConfig =
-  process.env as unknown as EnvConfig;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME }: IEnvConfig =
+  process.env as unknown as IEnvConfig;
 
 const db = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   host: DB_HOST,
