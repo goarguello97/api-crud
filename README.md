@@ -32,7 +32,7 @@ Antes de correr el proyecto, asegúrate de crear la base de datos en tu servidor
 
 ```bash
 psql -U tu_usuario -h localhost -p 5432
-CREATE DATABASE nombre_de_base_de_datos;
+CREATE DATABASE nombre_de_base_de_datos
 ```
 
 Asegúrate de reemplazar tu_usuario y nombre_de_base_de_datos con los valores correctos. Si tienes problemas para conectar a tu base de datos, revisa que PostgreSQL esté en ejecución y que las credenciales en el archivo .env sean correctas.
@@ -88,7 +88,7 @@ La API ofrece los siguientes endpoints para gestionar artículos:
 
 -**URL**: `/api/articulos`
 
--**URL**: `GET`
+-**Método**: `GET`
 
 -**Descripción**: Obtiene todos los artículos activos en la base de datos.
 
@@ -123,7 +123,7 @@ La API ofrece los siguientes endpoints para gestionar artículos:
 
 -**URL**: `/api/articulos`
 
--**URL**: `GET`
+-**Método**: `GET`
 
 -**Parámetros de consulta**:
 Busca artículos por nombre o estado de activación. Los parámetros se pasan como query parameters en la URL.
