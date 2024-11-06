@@ -4,6 +4,8 @@ import { IEnvConfig } from "../interfaces/envConfig.interface";
 
 dotenv.config({ path: ".env" });
 
+// Conexión a BBDD y creación de instancia de sequelize.
+
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME }: IEnvConfig =
   process.env as unknown as IEnvConfig;
 

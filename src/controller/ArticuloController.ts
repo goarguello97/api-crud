@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import { IObtenerArticulo } from "../interfaces/articuloService.interface";
 import ArticuloService from "../service/ArticuloService";
 
+// Controladores que consumen su respectivo servicio, aqui simplemente se verifica que exista o no errores.
+// Se retornara la respuesta correspondiente de acuerdo a ello o no.
+// Utilizando este patrón controllador para manegar las solicitudes HTTP, podremos modificar el servicio sin alterar el resto del código.
 class ArticuloController {
   static async obtenerArticulos(
     req: Request,

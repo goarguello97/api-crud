@@ -6,6 +6,7 @@ import {
 } from "../interfaces/articuloService.interface";
 import Articulo from "../models/Articulo";
 
+// Utilizo el patrón de servicio para aislar la lógica del negocio del resto.
 class ArticuloService {
   static async obtenerArticulos() {
     try {
