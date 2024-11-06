@@ -1,4 +1,4 @@
-interface IErrorMessage {
+export interface IErrorMessage {
   message: string;
   error: Error;
 }

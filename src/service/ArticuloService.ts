@@ -4,6 +4,7 @@ import {
   IModificarArticulo,
   IObtenerArticulo,
 } from "../interfaces/articuloService.interface";
+import { IErrorMessage } from "../interfaces/errorMessage.interface";
 import Articulo from "../models/Articulo";
 
 // Utilizo el patrón de servicio para aislar la lógica del negocio del resto.

@@ -17,7 +17,7 @@ app.use(express.json());
 // Rutas
 app.use("/api", router);
 
-db.sync({ force: true }).then(() => {
+db.sync({ force: false }).then(() => {
   console.log(`Base de datos conectada`);
   app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
 });
