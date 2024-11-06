@@ -24,8 +24,9 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
       API_KEY: ${API_KEY}
+      PORT: ${PORT:-3001}
     ports:
-      - "3001:3001"
+      - "${PORT}:${PORT}"
     depends_on:
       - db
     links:

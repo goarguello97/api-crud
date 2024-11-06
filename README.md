@@ -52,7 +52,7 @@ DB_HOST=tu_host
 DB_USER=tu_usuario
 DB_PASS=tu_contraseña
 DB_NAME=nombre_de_tu_base_de_datos
-PORT=3000
+PORT=puerto_deseado_api
 API_KEY=api_key_elegida
 ```
 
@@ -80,9 +80,50 @@ Si deseas iniciar el servidor en producción, ejecuta:
 npm run start
 ```
 
+## Ejecución con Docker (Sin necesidad de instalar PostgreSQL)
+
+Si no deseas instalar PostgreSQL de manera local, puedes ejecutar la aplicación utilizando Docker. Esto es útil ya que Docker creará un contenedor con PostgreSQL y otro con la aplicación, de manera que no necesitas configurar nada en tu máquina directamente.
+
+### 1. Clona este repositorio:
+
+```bash
+git clone https://github.com/goarguello97/api-crud.git
+cd api-crud
+```
+
+### 2. Configura las variables de entorno
+
+Crea un archivo .env en la raíz del proyecto con las siguientes variables de entorno:
+
+```bash
+DB_USER=tu_usuario
+DB_PASS=tu_contraseña
+DB_NAME=nombre_de_tu_base_de_datos
+PORT=puerto_deseado_api
+API_KEY=api_key_elegida
+```
+
+### 3. Ejecuta Docker Compose:
+
+Una vez configuradas las variables de entorno, puedes construir y ejecutar los contenedores con el siguiente comando:
+
+```bash
+docker-compose up --build
+```
+
 ## Endpoints
 
 La API ofrece los siguientes endpoints para gestionar artículos:
+
+Este comando hará lo siguiente:
+
+-Construirá la imagen Docker de la aplicación.
+-Iniciará los contenedores de la aplicación y PostgreSQL.
+-Expondrá el puerto que hayas elegido para que puedas acceder a la API(Si no definiste un puerto en especifico, sera el 3001).
+
+### Incluir la API Key en las solicitudes
+
+Debes enviar la API Key como un encabezado **`api-key`** en tus solicitudes HTTP. El valor de este encabezado debe coincidir con la clave configurada en el servidor.
 
 ### 1. Obtener todos los artículos
 
