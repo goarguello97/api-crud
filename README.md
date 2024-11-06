@@ -302,7 +302,7 @@ Busca artículos por nombre o estado de activación. Los parámetros se pasan co
 }
 ```
 
-### Error general si no esta autorizado mediante la api-apiKey
+### Error general si no esta autorizado mediante la api-key
 
 ```json
 {
